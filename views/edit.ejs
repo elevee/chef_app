@@ -1,0 +1,17 @@
+<h2><%= recipe.displayName %></h2>
+<p>Arghhh here be ye edit page for <%= recipe.displayName %>!</p>
+<form>
+	<label for="name">Name: </label>
+	<input id="name" name="name" type="text" value="<%= recipe.name%>"><br/>
+	<label for="displayName">Display Name: </label>
+	<input id="displayName" name="displayName" type="text" value="<%= recipe.displayName %>"><br/>
+	<label for="ingredients">Ingredients: </label><br />
+	<% recipe.ingredients.forEach(function(ingredient, i){ %>
+		<input class="ingredient" name="ingredient<%= i %>" type="text" value="<%= ingredient %>"><br/>
+	<% }); %>
+	<button type="button">+</button><br/>
+
+	<label for="instructions">Instructions: (will be separated on periods)</label><br/>
+	<textarea rows="20" cols="150"><%= recipe.instructions.join(" "); %></textarea><br/>
+	<button type="submit">Edit Recipe</button><br/>
+</form>

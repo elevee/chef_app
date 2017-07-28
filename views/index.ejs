@@ -1,10 +1,28 @@
-<h1>Chef Recipes</h1>
+<%- include head.ejs %>
 
-<table class='table'>
-	<tr></tr>
-	<tr>Name</tr>
-	<tr></tr>
-	<td>E</td>
-	<td>Pork Rinds</td>
-	<td>D</td>
-</table>
+<h1>Chef Recipes</h1>
+<div class="container">
+	<table class='table'>
+		<thead>
+			<tr>
+				<th width="10%"></th>
+				<th>Name</th>
+				<th width="10%"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (var r in recipes) { %>
+				<% if (recipes.hasOwnProperty(r) && r.substring(0, 1) !== "_") { %>
+					<tr>
+						<td width="10%">Edit</td>
+						<td><%= recipes[r].displayName %></td>
+						<td width="10%">Delete</td>
+					</tr>
+				<% } %>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+
+<%- include tail.ejs %>
